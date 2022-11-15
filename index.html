@@ -7,6 +7,63 @@
 <body>
 <script>
 
+    let computerScore = 0;
+    let playerScore = 0;
+
+
+    function getComputerChoice() {
+        const computerChoice = ["rock", "paper", "scissors"]
+        let getRandom = Math.floor(Math.random() * 3);
+
+        return computerChoice[getRandom];
+
+    }
+
+    function playGame(playerSelection, computerSelection) {
+
+        if (playerSelection == computerSelection) {
+            return "You have tied!"
+        } else if (playerSelection == "rock" && computerSelection == "paper") {
+            computerScore += 1
+            return "Computer Wins!"
+        } else if (playerSelection == "rock" && computerSelection == 'scissors') {
+            playerScore += 1
+            return "Player Wins!"
+        } else if (playerSelection == "paper" && computerSelection == "rock") {
+            playerScore += 1
+            return "Player Wins!"
+        } else if (playerSelection == "paper" && computerSelection == "scissors") {
+            computerScore += 1
+            return "Computer Wins!"
+        } else if (playerSelection == "scissors" && computerSelection == "rock") {
+            computerScore += 1
+            return "Computer Wins!"
+        } else if (playerSelection == "scissors" && computerSelection == "paper") {
+            playerScore += 1
+            return "Player Wins!"
+        }
+    }
+
+    function game() {
+
+
+        for (let i = 0; i < 5; i++) {
+            console.log(playGame("rock", getComputerChoice()));
+        }
+        console.log(playerScore, computerScore)
+
+
+        if (playerScore > computerScore){
+            console.log("Player has won the game!")
+        }else {
+            console.log("Computer has won the game!")
+        }
+
+    }
+
+    game()
+
+
 </script>
 </body>
 </html>
